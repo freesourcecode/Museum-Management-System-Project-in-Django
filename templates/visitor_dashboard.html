@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	 <link rel="stylesheet" href="{% static "css/base.css" %}" /> <!-- CSS -->
+</head>
+<body background="{% static "images/visit.png" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
+
+	
+      <ul style="background-color: blue;">
+      <li><a href = '/edit_profile/'> Edit Profile </a></li>
+      <li><a href = '/ticket_book/'> Book Ticket</a></li>
+      <li><a href = '/feedback/'> Add Feedback</a></li>
+      <li style="float:right"><a class="active" href="/user_logout/"> Logout</a></li>
+      </ul>
+    
+    <br><br><br><br><br><br><br>
+    <center><h1 style="color: yellow"> Hello {{Name}} </h1></center>
+	<br><br><br>
+
+	<center>
+		<h2 style="color: black; background-color: yellow;opacity: 50%;">Booked ticket  / visit History</h2>
+
+	<table>
+
+<tr>
+	{% for i in ticket_columns %}
+		<th style="background-color: blue;">{{i}}</th>
+	{% endfor %}
+</tr>
+
+{% for i in ticket_data %}
+	<tr>
+	{% for j in i %}
+		<td>{{j}}</td>
+
+	
+	{% endfor %}
+	</tr>
+{% endfor %}
+
+</table>
+
+	</center>
+</body>
+</html>
+
+
+
